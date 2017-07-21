@@ -37,10 +37,25 @@ AppleUI
     - Buttonを配置
     - Buttonを`Ctrl`を押しながら次のViewControllerへドラッグ
     - この流れをSegueという
-    - ツリーペインでサブクリック->`New File`し、`Cocoa Touch Class`を選び、`Subclass of`を`UIViewCOntroller`を選択。適当な名前でClassを作成。
+    - ツリーペインでサブクリック->`New File`し、`Cocoa Touch Class`を選び、`Subclass of`を`UIViewController`を選択。適当な名前でClassを作成。
     - 追加したViewControllerの`CustomClass`に上で作成したクラスを設定する
     - 追加したViewControllerに戻る関数(`dismiss`)を追加、ボタンに紐付け。
 - 任意のタイミングで画面遷移
     - ViewControllerを選択し、`ctrl`キーを押しながら追加したViewへドラッグし、ViewControl自体をSegueでつなぐ
     - SegueのIdentifierを設定
     - 既存のViewControllerに戻るSegueする関数(`performSegue`)を設定し、
+
+## Day 4
+### Life Cycle
+- [viewDidLoad]:Viewがロードされたときに呼ばれる（ほぼコンストラクタ）
+    + 一度だけ呼ばれる
+    + 別の画面から戻ったときには呼ばれない
+- [didReceiveMemoryWarning]:メモリがやばいときに呼ばれる
+- [loadView]:
+- [viewWillAppear]:Viewが表示されるときに呼ばれる
+- [viewDidAppear]:Viewが表示されるときに呼ばれる
+- [viewWillDisappear]:Viewが消えるときに
+- [viewDidDisappear]:Viewが消えるときに
+
+### tag
+パーツ番号みたいなもの
