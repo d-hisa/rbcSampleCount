@@ -59,3 +59,93 @@ AppleUI
 
 ### tag
 パーツ番号みたいなもの
+
+### UITableView
+#### 
+
+画面遷移
+- Main.storyboard
+    + ViewControllerを配置
+- プロジェクトペイン
+    + New File
+    + Cocoa
+    + ViewController(よしなにな名前)
+- Main.storyboard
+    + Custom Touch Classを作成したViewControllerに設定
+    + ViewControllerか、もしくはButtonから`Ctrl`を押しながらドラッグして遷移先のViewにドロップ
+    + 選択肢を
+        * Modal:モーダルタイプそのままでOK
+        * Show:Pushにしたいとき。下へ
+    + 元のViewを選択した状態で`Editor`->`Embed in`->`Navigation Controller`
+    + `Simulated Metrics`->`Top Bar`->`Opaque Navigation Bar`だとナビバーを透明にしない設定となる。
+    + ナビバー上では通常ボタンはNG
+        * `Bar Button Item`を使う
+        * Labelを起きたい場合も、`Navigation item`を使うこと。
+- ViewController
+    +
+
+## Custom Cell
+### Main.storyboard
+- TableViewを追加
+- TableViewにTableCellを追加
+- TableCellのIdentifierを設定(`tableCellId`)
+- TableCellの大きさを設定
+
+### project Pain
++ New File
++ Cacao Touch Class
+    - Class: any(ex.`sampleTableViewCell`)
+    - Subclass: UITableViewCell
+    - Enable `Also Create XIB file`
+
+### sampleTableViewCell.xib
+- 任意のパーツ（ラベルなど）を追加
+- セルのIdentifierを`tableCellId`に設定
+
+### sampleTableViewCell.swift
+- `@IBOutlet`で追加したパーツを宣言
+
+### sampleTableViewCell.xib
+- パーツのヒモ付作業
+
+### ViewController.swift
+- class宣言に`UITableViewDataSource`と`UITableViewDelegate`を追記
+- `@IBOutlet`で`UITableView`を宣言
+- `viewDidLoad`に下記を追記
+    ```swift
+    sampleTableView.dataSource = self
+    sampleTableView.delegate = self
+    sampleTableView.tableFooterView = UIView()
+    let nib = UINib(nibName: "XIBファイルの名前", bundle: Bundle.main)
+    sampleTableView.register(nib, forCellReuseIdentifier: "セルに付けたIdentifier")
+    ```
+- 下記の関数を追加
+    ```swift
+    // テーブルのMAX数を決める
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MAX_TABLE_AMOUNT //だいたいの場合、"利用する配列.count"
+    }
+    // テーブルに表示するコンテンツを決める
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "セルに付けたIdentifier") as! XIBファイルの名前
+        cell.カスタムセルで宣言したLabel.text = listContent[indexPath.row]["contentName"]
+        cell.listImageView.image = UIImage(named: listContent[indexPath.row]["imageName"]!)
+        return cell
+    }
+    // テーブルのセルをタッチしたときの動作
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "toDetail", sender: nil)
+        tableView.deselectRow(at: indexPath, animated: true)    //選択状態解除
+    }
+    // 次のViewへ値を渡したりする
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailViewController = segue.destination as! DetailViewController
+        let selectedIndex = listTableView.indexPathForSelectedRow!
+        detailViewController.selectedName = listContent[selectedIndex.row]["contentName"]!
+        detailViewController.selectedImage = UIImage(named: listContent[selectedIndex.row]["imageName"]!)
+    }
+
+    ```
+
+### Main.storyboard
+- 宣言したTableを紐付け

@@ -143,3 +143,13 @@ func dish(){
 
 
 }
+
+
+
+
+
+var array: [String] = []
+var array = [String]()
+
+var moji: String = ""
+var moji: [String] = ""
