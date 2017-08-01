@@ -34,12 +34,10 @@ class QuizViewController: UIViewController {
         readCSV()
         initButton()
         updateQuiz()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // CSVを読み込む関数
@@ -66,10 +64,12 @@ class QuizViewController: UIViewController {
     }
     
     func initButton(){
+        /*
         btn1.setBackgroundImage(UIImage(named: "white"), for: .normal)
         btn2.setBackgroundImage(UIImage(named: "white"), for: .normal)
         btn3.setBackgroundImage(UIImage(named: "white"), for: .normal)
         btn4.setBackgroundImage(UIImage(named: "white"), for: .normal)
+ */
     }
     
     func fileName(name: String) -> String{
@@ -154,51 +154,82 @@ class QuizViewController: UIViewController {
         updateQuiz()
     }
     
+    
+    
     func whenCorrect(btn: UIButton){
-        btn.setBackgroundImage(UIImage(named:"yellow"), for: .normal)
+        //btn.setBackgroundImage(UIImage(named:"yellow"), for: .normal)
+        animateButton(btn: btn, isCorrect: true)
         correctAnswerCounter = correctAnswerCounter + 1
         nextQuiz()
     }
 
     func whenIncorrect(btn: UIButton){
-        btn.setBackgroundImage(UIImage(named: "red"), for: .normal)
+        animateButton(btn: btn, isCorrect: false)
+        //btn.setBackgroundImage(UIImage(named: "red"), for: .normal)
         nextQuiz()
     }
     
     func animateButton(btn: UIButton, isCorrect: Bool){
-        let b = self.btn1.bounds
+        let b = btn.bounds
         
-        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 20,animations: {
-            // ボタンサイズの変更
-            self.btn1.bounds = CGRect(x: b.origin.x - 20, y: b.origin.y, width: b.size.width + 80, height: b.size.height)
+        if isCorrect {
+            UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 20,animations: {
+                // ボタンサイズの変更
+                //btn.bounds = CGRect(x: b.origin.x - 20, y: b.origin.y, width: b.size.width + 80, height: b.size.height)
+                
+                // button image change
+                //btn.setBackgroundImage(UIImage(named:"red"), for: .normal)
+                // ボタンカラーの変更
+                btn.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.0, alpha: 1.0)
+                // spinnerのalpha値を変更して表示
+                //self.spinner.alpha = 1.0
+                // spinnerの位置を設定
+                //self.spinner.center = CGPoint(x: 40, y: btn.frame.size.height / 2)
+            }, completion: nil)
             
-            // button image change
-            self.btn1.setBackgroundImage(UIImage(named:"red"), for: .normal)
-            // ボタンカラーの変更
-            //self.btn1.backgroundColor = UIColor(red: 0.85, green: 0.83, blue: 0.45, alpha: 1.0)
-            // spinnerのalpha値を変更して表示
-            self.spinner.alpha = 1.0
-            // spinnerの位置を設定
-            self.spinner.center = CGPoint(x: 40, y: self.btn1.frame.size.height / 2)
-        }, completion: nil)
-        
-        UIView.animate(withDuration: 1.0, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 20, animations: {
-            // ボタンサイズを元に戻す
-            self.btn1.bounds = CGRect(x: b.origin.x, y: b.origin.y, width: b.size.width, height: b.size.height)
-            // button image change
-            self.btn1.setBackgroundImage(UIImage(named:"white"), for: .normal)
+            UIView.animate(withDuration: 1.0, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 20, animations: {
+                // ボタンサイズを元に戻す
+                //btn.bounds = CGRect(x: b.origin.x, y: b.origin.y, width: b.size.width, height: b.size.height)
+                // button image change
+                //btn.setBackgroundImage(UIImage(named:"white"), for: .normal)
+                
+                // ボタンカラーを元に戻す
+                btn.backgroundColor = UIColor.clear
+                // spinnerを非表示に
+                //self.spinner.alpha = 0.0
+            }, completion: nil)
+        }else{
+            UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 20,animations: {
+                // ボタンサイズの変更
+                btn.bounds = CGRect(x: b.origin.x - 20, y: b.origin.y, width: b.size.width + 80, height: b.size.height)
+                
+                // button image change
+                //btn.setBackgroundImage(UIImage(named:"red"), for: .normal)
+                // ボタンカラーの変更
+                btn.backgroundColor = UIColor(red: 0.85, green: 0.0, blue: 0.0, alpha: 1.0)
+                // spinnerのalpha値を変更して表示
+                self.spinner.alpha = 1.0
+                // spinnerの位置を設定
+                self.spinner.center = CGPoint(x: 40, y: btn.frame.size.height / 2)
+            }, completion: nil)
             
-            // ボタンカラーを元に戻す
-            //self.btn1.backgroundColor = UIColor.blue
-            // spinnerを非表示に
-            self.spinner.alpha = 0.0
-        }, completion: nil)
+            UIView.animate(withDuration: 1.0, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 20, animations: {
+                // ボタンサイズを元に戻す
+                btn.bounds = CGRect(x: b.origin.x, y: b.origin.y, width: b.size.width, height: b.size.height)
+                // button image change
+                //btn.setBackgroundImage(UIImage(named:"white"), for: .normal)
+                
+                // ボタンカラーを元に戻す
+                btn.backgroundColor = UIColor.clear
+                // spinnerを非表示に
+                self.spinner.alpha = 0.0
+            }, completion: nil)
+        }
 
     }
     
     @IBAction func clickBtn1(){
         let index: Int = answerIconNumArray[0]
-        animateButton(btn: btn1, isCorrect: true)
         if isCorrect(answerIndex: index){
             whenCorrect(btn: btn1)
         }else{

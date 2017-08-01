@@ -1018,6 +1018,11 @@
 		AB10F1471F271BCC00A7BEA3 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = AB10F13D1F271BCC00A7BEA3 /* yellow.png */; };
 		AB10F1491F271E1400A7BEA3 /* icons.csv in Resources */ = {isa = PBXBuildFile; fileRef = AB10F1481F271E1400A7BEA3 /* icons.csv */; };
 		AB10F14B1F27346B00A7BEA3 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB10F14A1F27346B00A7BEA3 /* ResultViewController.swift */; };
+		AB10F14D1F2740D400A7BEA3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB10F14C1F2740D400A7BEA3 /* CollectionViewController.swift */; };
+		AB10F1501F27428C00A7BEA3 /* iconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB10F14E1F27428C00A7BEA3 /* iconTableViewCell.swift */; };
+		AB10F1511F27428C00A7BEA3 /* iconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB10F14F1F27428C00A7BEA3 /* iconTableViewCell.xib */; };
+		AB10F1531F282E2200A7BEA3 /* app_launch.png in Resources */ = {isa = PBXBuildFile; fileRef = AB10F1521F282E2200A7BEA3 /* app_launch.png */; };
+		AB10F1551F28360700A7BEA3 /* startbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = AB10F1541F28360700A7BEA3 /* startbtn.png */; };
 		ABD617851F20912D0037A06A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD617841F20912D0037A06A /* AppDelegate.swift */; };
 		ABD617871F20912D0037A06A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD617861F20912D0037A06A /* ViewController.swift */; };
 		ABD6178A1F20912E0037A06A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD617881F20912E0037A06A /* Main.storyboard */; };
@@ -2037,6 +2042,11 @@
 		AB10F13D1F271BCC00A7BEA3 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
 		AB10F1481F271E1400A7BEA3 /* icons.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icons.csv; sourceTree = "<group>"; };
 		AB10F14A1F27346B00A7BEA3 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		AB10F14C1F2740D400A7BEA3 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		AB10F14E1F27428C00A7BEA3 /* iconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iconTableViewCell.swift; sourceTree = "<group>"; };
+		AB10F14F1F27428C00A7BEA3 /* iconTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iconTableViewCell.xib; sourceTree = "<group>"; };
+		AB10F1521F282E2200A7BEA3 /* app_launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_launch.png; sourceTree = "<group>"; };
+		AB10F1541F28360700A7BEA3 /* startbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startbtn.png; sourceTree = "<group>"; };
 		ABD617811F20912D0037A06A /* QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD617841F20912D0037A06A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABD617861F20912D0037A06A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -3063,6 +3073,8 @@
 		AB10F1331F271ABA00A7BEA3 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				AB10F1541F28360700A7BEA3 /* startbtn.png */,
+				AB10F1521F282E2200A7BEA3 /* app_launch.png */,
 				AB10F1341F271BCC00A7BEA3 /* blue.png */,
 				AB10F1351F271BCC00A7BEA3 /* deepGreen.png */,
 				AB10F1361F271BCC00A7BEA3 /* gray.png */,
@@ -3102,8 +3114,11 @@
 				AB10F1331F271ABA00A7BEA3 /* images */,
 				ABD617861F20912D0037A06A /* ViewController.swift */,
 				ABD617881F20912E0037A06A /* Main.storyboard */,
+				AB10F14E1F27428C00A7BEA3 /* iconTableViewCell.swift */,
+				AB10F14F1F27428C00A7BEA3 /* iconTableViewCell.xib */,
 				AB10E2721F26DE1B00A7BEA3 /* QuizViewController.swift */,
 				AB10F14A1F27346B00A7BEA3 /* ResultViewController.swift */,
+				AB10F14C1F2740D400A7BEA3 /* CollectionViewController.swift */,
 				AB10E2781F2704F000A7BEA3 /* Icon.swift */,
 				AB10E2741F26E92200A7BEA3 /* Quiz.swift */,
 				ABD6178B1F20912E0037A06A /* Assets.xcassets */,
@@ -3488,6 +3503,7 @@
 				AB10EE061F270EAE00A7BEA3 /* codio.png in Resources */,
 				AB10F09A1F270EAF00A7BEA3 /* strider.png in Resources */,
 				AB10ED711F270EAE00A7BEA3 /* apple.png in Resources */,
+				AB10F1531F282E2200A7BEA3 /* app_launch.png in Resources */,
 				AB10EF771F270EAF00A7BEA3 /* mastercard.png in Resources */,
 				AB10EE941F270EAE00A7BEA3 /* floydhub.png in Resources */,
 				AB10EDFF1F270EAE00A7BEA3 /* codepen-icon.png in Resources */,
@@ -3963,12 +3979,14 @@
 				AB10F09C1F270EAF00A7BEA3 /* strongloop.png in Resources */,
 				AB10F0E91F270EAF00A7BEA3 /* vagrant.png in Resources */,
 				AB10ED591F270EAE00A7BEA3 /* amazon-chime.png in Resources */,
+				AB10F1511F27428C00A7BEA3 /* iconTableViewCell.xib in Resources */,
 				AB10F08C1F270EAF00A7BEA3 /* square.png in Resources */,
 				AB10EDAF1F270EAE00A7BEA3 /* bitballoon.png in Resources */,
 				AB10F12A1F270EAF00A7BEA3 /* zend-framework.png in Resources */,
 				AB10EF371F270EAF00A7BEA3 /* knex.png in Resources */,
 				AB10EE7E1F270EAE00A7BEA3 /* facebook.png in Resources */,
 				AB10EF0A1F270EAF00A7BEA3 /* io.png in Resources */,
+				AB10F1551F28360700A7BEA3 /* startbtn.png in Resources */,
 				AB10EEFA1F270EAF00A7BEA3 /* ieee.png in Resources */,
 				AB10EF7C1F270EAF00A7BEA3 /* mdn.png in Resources */,
 				AB10F0EF1F270EAF00A7BEA3 /* vimeo.png in Resources */,
@@ -4196,7 +4214,9 @@
 				ABD617871F20912D0037A06A /* ViewController.swift in Sources */,
 				AB10E2751F26E92200A7BEA3 /* Quiz.swift in Sources */,
 				AB10E2791F2704F000A7BEA3 /* Icon.swift in Sources */,
+				AB10F14D1F2740D400A7BEA3 /* CollectionViewController.swift in Sources */,
 				ABD617851F20912D0037A06A /* AppDelegate.swift in Sources */,
+				AB10F1501F27428C00A7BEA3 /* iconTableViewCell.swift in Sources */,
 				AB10F14B1F27346B00A7BEA3 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

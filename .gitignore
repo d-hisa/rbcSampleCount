@@ -24,4 +24,7 @@ xcuserdata/
 *.xccheckout
 *.xcscmblueprint
 
-
+## for mac
+.DS_Store
+.DS_store
+*.png
